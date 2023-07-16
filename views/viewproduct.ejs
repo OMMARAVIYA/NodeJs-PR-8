@@ -1,0 +1,71 @@
+<%- include('header') %>
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">PRODUCT</h1>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Your Product</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="text-center">
+                                <th>CATEGORY</th>
+                                <th>SUBCATEGORY</th>
+                                <th>EXTRASUBCATEGORY</th>
+                                <th>NAME</th>
+                                <th>QTY</th>
+                                <th>PRICE</th>
+                                <th>DESC</th>
+                                <th>IMAGE</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <%product.map((val)=>{
+                                const{id,categoryId,subcategoryId,extrasubcategoryId,pname,pqty,pprice,pdescription,pimage}=
+                                val %>
+                                <tr>
+                                    <td>
+                                        <%=categoryId.category%>
+                                    </td>
+                                    <td>
+                                        <%=subcategoryId.subcategory%>
+                                    </td>
+                                    <td>
+                                        <%=extrasubcategoryId.extrasubcategory%>
+                                    </td>
+                                    <td>
+                                        <%=pname%>
+                                    </td>
+                                    <td>
+                                        <%=pqty%>
+                                    </td>
+                                    <td>
+                                        <%=pprice%>
+                                    </td>
+                                    <td>
+                                        <%=pdescription%>
+                                    </td>
+                                    <td>
+                                        <img src="<%=pimage%>" width="100">
+                                    </td>
+                                    <td>
+                                        <a href="/DeleteProduct?id=<%=id%>" class="btn btn-danger">Delete</a>
+                                        <a href="/EditProduct?id=<%=id%>" class="btn btn-primary">Edit</a>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include('footer') %>

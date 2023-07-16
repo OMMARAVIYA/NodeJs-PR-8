@@ -1,0 +1,83 @@
+<%- include('header') %>
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Add Category</h1>
+                        </div>
+                        <form class="user" method="post" action="/addproduct" enctype="multipart/form-data">
+                            <div class="form-group ">
+                                <input type="hidden" value="<%=single.id%>" class="form-control form-control-user"
+                                    name="editid" id="exampleFirstName" placeholder="Product Price">
+                            </div>
+                            <div class="form-group ">
+                                <select name="category" class="form-control">
+                                    <option value="">---Select Category---</option>
+                                    <% category.map((val)=>{ %>
+                                        <option <% if(val.id==single.categoryId) { %> selected <% } %> value="<%=
+                                                    val.id%>">
+                                                    <%= val.category %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <select name="subcategory" class="form-control">
+                                    <option value="">---Select SubCategory---</option>
+                                    <% subcategory.map((val)=>{ %>
+                                        <option <% if(val.id==single.subcategoryId) { %> selected <% } %> value="
+                                                <%=val.id %>">
+                                                    <%= val.subcategory %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <select name="extrasubcategory" class="form-control">
+                                    <option value="">---Select ExtraSubCategory---</option>
+                                    <% extrasubcategory.map((val)=>{ %>
+                                        <option <% if(val.id==single.extrasubcategoryId) { %> selected <% } %> value="
+                                                <%=val.id %>">
+                                                    <%= val.extrasubcategory %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.pname%>" class="form-control form-control-user"
+                                    name="pname" id="exampleFirstName" placeholder="Product Name">
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.pqty%>" class="form-control form-control-user"
+                                    name="pqty" id="exampleFirstName" placeholder="Product Qty">
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.pprice%>" class="form-control form-control-user"
+                                    name="pprice" id="exampleFirstName" placeholder="Product Price">
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.pdescription%>"
+                                    class="form-control form-control-user" name="pdescription" id="exampleFirstName"
+                                    placeholder="Product Description">
+                            </div>
+                            <div class="form-group ">
+                                <input type="file" style="height: 0;" class="form-control form-control-user"
+                                    name="pimage" placeholder="Blog Image">
+                            </div>
+                            <% if(single){ %>
+                                <button class="btn btn-primary btn-user btn-block" type="submit">Edit</button>
+                                <% } else{ %>
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>
+                                    <% } %>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer') %>

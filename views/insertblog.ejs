@@ -1,0 +1,43 @@
+<%- include('header') %>
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Insert Blog</h1>
+                        </div>
+                        <form class="user" method="post" action="/InsertBLog" enctype="multipart/form-data">
+                            <div class="form-group ">
+                                <input type="hidden" value="<%=single.id%>" class="form-control form-control-user"
+                                    name="editid" id="exampleFirstName" placeholder="Editid">
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.title%>" class="form-control form-control-user"
+                                    name="title" id="exampleFirstName" placeholder="Add Title">
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" value="<%=single.description%>"
+                                    class="form-control form-control-user" name="description" id="exampleInputEmail"
+                                    placeholder="Title Description">
+                            </div>
+                            <div class="form-group ">
+                                <input type="file" style="height: 0;" class="form-control form-control-user"
+                                    name="image" placeholder="Blog Image">
+                            </div>
+                            <% if(single){ %>
+                                <button class="btn btn-primary btn-user btn-block" type="submit">Edit</button>
+                                <% }else{%>
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>
+                                    <%}%>
+                                        <hr>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer') %>
